@@ -31,19 +31,11 @@ public class SimpleClient extends AbstractClient {
 		}
 	}
 	
-	public static SimpleClient getClient() throws UnknownHostException {
+	public static SimpleClient getClient() {
 		if (client == null) {
-			InetAddress ip;
-			try {
-				ip = InetAddress.getLocalHost();
-				client = new SimpleClient(ip.getHostAddress(), 3020);
-			}
-			catch (IOException e1)
-			{
-				e1.printStackTrace();
-			}
-
+			client = new SimpleClient("localhost", 3020);
 		}
+
 		return client;
 	}
 
